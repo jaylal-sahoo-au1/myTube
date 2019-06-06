@@ -1,11 +1,10 @@
 import {store} from './store/store';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {App} from './component/App';
 
 
-store.subscribe(function(){
-    console.log(store.getState());
-})
 
-store.dispatch({
-    type:"FETCH_VIDEOS",
-    videoType:"trending"
-})
+ReactDOM.render(<App/>,document.getElementById("root"));
+
+

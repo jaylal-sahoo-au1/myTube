@@ -7,4 +7,12 @@ let Reducers = combineReducers({
 
 let store= createStore(Reducers);
 
-export {store};
+store.subscribe(function(){
+    console.log(store.getState());
+})
+
+function stateMapper(state){
+    return state;
+}
+
+export {store,stateMapper};
