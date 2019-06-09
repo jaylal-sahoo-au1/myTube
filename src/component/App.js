@@ -12,14 +12,14 @@ class App extends React.Component{
             <Router><div className="container-fluid">
         <div className="row">
            <div className="col-md-3">
-              <h3>myTube</h3>
+              <h3 className="text-danger">myTube</h3>
               <Menu />
               <hr></hr>
            </div>
            <div className="col-md-9">
            <Route path="/" exact={true} component={Trending}/>
            <Route path="/search" exact={true} component={Search}/>
-           <hr></hr>
+    
            </div>
         </div>
       </div></Router>

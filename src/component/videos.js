@@ -5,7 +5,20 @@ import {connect} from 'react-redux';
 
 class VideoComponent extends React.Component{
     render(){
-    
+        if(this.props.isVideoLoading){
+         return (
+             <div className="row">
+                 <div className="col-md-12">
+                 <div className="d-flex justify-content-center">
+                  <div className="spinner-border text-danger" role="status">
+                      <span class="sr-only">Loading...</span>
+                 </div>
+                 </div>
+                 </div>
+             </div>
+         );
+        }
+        else {
         return   this.props.videos.map(function(v){
             let videoId =v.id;
             if(typeof videoId !="string"){
@@ -22,6 +35,7 @@ class VideoComponent extends React.Component{
         })
         
     }
+}
 }
 let Video = connect(stateMapper)(VideoComponent);
 

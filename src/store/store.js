@@ -1,8 +1,10 @@
 import {createStore,combineReducers} from 'redux';
 import {videoReducers} from './reducers/videoReducer';
+import {isVideoLoadingReducer} from './reducers/isVideoLoadingReducer';
 
 let Reducers = combineReducers({
-    videos:videoReducers
+    videos:videoReducers,
+    isVideoLoading:isVideoLoadingReducer
 })
 
 let store= createStore(Reducers);

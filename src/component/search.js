@@ -14,7 +14,7 @@ class SearchComponent extends React.Component{
     this.inputChanged= this.inputChanged.bind(this);
     this.buttonChanged=this.buttonChanged.bind(this);
     }
-    componentDidMount(){
+    componentWillUnmount(){
         this.props.dispatch({
             type:"CLEAR_VIDEO",
             videoType:"trending"
@@ -37,12 +37,12 @@ class SearchComponent extends React.Component{
     render(){
         return(
                 <div>
-                    <h2>Search videos</h2>
+                    <h2 className="text-danger">Search videos</h2>
                     <div className="form-row">
                       <div className="col">
                         <input type="text" onChange={this.inputChanged} className="form-control form-control-lg"/>
                       </div>
-                      <button className="btn btn-info btn-lg" onClick={this.buttonChanged}>Search</button>
+                      <button className="btn btn-danger btn-lg" onClick={this.buttonChanged}>Search</button>
                     </div>
                     <div className="row">
                     <Video /></div>
