@@ -41,7 +41,7 @@ fetch(url)
     return data.json();
 })
 .then(function(response){
-    this.props.dispatch({
+    store.dispatch({
         type:"VIDEO_DATA_LOADED",
         videoData:response.items[0]
     })
