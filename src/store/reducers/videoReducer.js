@@ -7,7 +7,7 @@ function videoReducers(videos=[],action){
     }
 
     if(action.type=="FETCH_VIDEOS"){
-       fetchVideo(store,action.videoType,action.query);
+       fetchVideo(store,action);
     }
     if(action.type=="VIDEOS_LOADED"){
         videos = action.videos;
