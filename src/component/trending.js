@@ -1,7 +1,15 @@
 import React from 'react';
 import {Video} from './videos';
+import {store, stateMapper} from '../store/store';
+import {connect} from 'react-redux';
 
-class Trending extends React.Component{
+class TrendingComponent extends React.Component{
+    componentDidMount(){
+        this.props.dispatch({
+            type:"FETCH_VIDEOS",
+            videoType:"trending"
+        })
+    }
     render(){
         return(
                 <div>
@@ -9,13 +17,11 @@ class Trending extends React.Component{
                     <hr></hr>
                     <div className="row">
                     <Video /></div>
-                    
-                </div>
-            
-            
-            
+                </div> 
         );
     }
 }
+
+let Trending = connect(stateMapper)(TrendingComponent);
 
 export {Trending};
