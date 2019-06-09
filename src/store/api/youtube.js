@@ -1,6 +1,8 @@
+import MYTUBE_CONFIG from '../../config'
 function fetchVideo(store,videotype,query){
     if(videotype=="trending"){
-fetch("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=AIzaSyBi4HDmLIMGixAaTV3CvDKFAbqNBBNn9pQ")
+        let url =`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}`
+fetch(url)
 .then(function(data){
     return data.json();
 })
@@ -15,7 +17,8 @@ fetch("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopul
 })
 }
 else if(videotype=="search"){
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyBi4HDmLIMGixAaTV3CvDKFAbqNBBNn9pQ&q=${query}&maxResults=30`)
+    let url =`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}&q=${query}&maxResults=30`
+    fetch(url)
 .then(function(data){
     return data.json();
 })
