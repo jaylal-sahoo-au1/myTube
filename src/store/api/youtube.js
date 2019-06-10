@@ -1,6 +1,6 @@
 import MYTUBE_CONFIG from '../../config';
 function fetchVideo(store,action){
-    if(action.videotype=="trending"){
+    if(action.videoType=="trending"){
         let url =`https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}`
 fetch(url)
 .then(function(data){
@@ -16,7 +16,7 @@ fetch(url)
     console.log(err);
 })
 }
-else if(action.videotype=="search"){
+else if(action.videoType=="search"){
     let url =`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}&q=${action.query}&maxResults=30`
     fetch(url)
 .then(function(data){
