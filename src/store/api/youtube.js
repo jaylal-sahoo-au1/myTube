@@ -51,5 +51,23 @@ fetch(url)
 })
 
 }
+function fetchCommentVideo(store,action){
+    let url =`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies&videoId=${action.videoId}&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}`;
+    fetch(url)
+    .then(function(data){
+        return data.json();
+    })
+    .then(function(response){
+        console.log(response);
+        store.dispatch({
+            type:"VIDEO_COMMENT_LOADED",
+            comment:response.items
+        })
+    })
+    .catch(function(err){
+        console.log(err);
+    })
+    
+    }
 
-export {fetchVideo,fetchSingleVideo};
+export {fetchVideo,fetchSingleVideo,fetchCommentVideo};

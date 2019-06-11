@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Comments} from './Comments';
 
 import {store, stateMapper} from '../store/store';
 
@@ -87,6 +88,13 @@ class VideoPlayerComponent extends React.Component{
                <div className="col-md-8">
                {this.renderDesc()}
                </div>
+            </div>
+            <div className="row">
+              <div className="col-md-1"></div>
+              <div className="col-md-8">
+              <h2>{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.commentCount} Comments</h2>
+                <Comments videoId={this.props.match.params.videoId} />
+              </div>
             </div>
             </div>
         );
