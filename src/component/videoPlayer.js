@@ -7,8 +7,14 @@ import {store, stateMapper} from '../store/store';
 class VideoPlayerComponent extends React.Component{
     constructor(props){
         super(props);
+        this.state={
+             showMoreClicked:false
+        }
+
+        this.showMoreClick = this.showMoreClick.bind(this);
 
         this.renderData =this.renderData.bind(this);
+        this.renderDesc =this.renderDesc.bind(this);
     }
     componentDidMount(){
         this.props.dispatch({
@@ -30,6 +36,26 @@ class VideoPlayerComponent extends React.Component{
             return (this.props.currentPlayerVideo.snippet.title);
         }
     }
+    renderDesc(){
+        if(this.state.showMoreClicked){
+            return (<p>
+           {this.props.currentPlayerVideo.snippet && this.props.currentPlayerVideo.snippet.description}
+            </p>
+               
+            );
+        } else {
+      return  (<p>
+        {this.props.currentPlayerVideo.snippet && this.props.currentPlayerVideo.snippet.shortDesc}
+        <button onClick={this.showMoreClick} className="btn btn-info btn-sm">Show More</button>
+        </p>
+      ) ;
+        }
+    }
+    showMoreClick(){
+        this.setState({
+            showMoreClicked:true
+        })
+    }
     
     render(){
         console.log(this.props.currentPlayerVideo.snippet);
@@ -39,7 +65,7 @@ class VideoPlayerComponent extends React.Component{
             <hr></hr>
             <div className="row">
             <div className="col-md-1"></div>
-               <div className="col-md-9">
+               <div className="col-md-8">
                <div className="embed-responsive embed-responsive-4by3">
             <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${this.props.match.params.videoId}?rel=0`} allowFullScreen></iframe>
             </div>
@@ -47,7 +73,7 @@ class VideoPlayerComponent extends React.Component{
             </div>
             <div className="row">
             <div className="col-md-1"></div>
-               <div className="col-md-11">
+               <div className="col-md-10">
                  <h2>
                      Views:{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.viewCount },
                      Likes:{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.likeCount },
@@ -58,8 +84,8 @@ class VideoPlayerComponent extends React.Component{
             
             <div className="row">
             <div className="col-md-1"></div>
-               <div className="col-md-9">
-               {this.props.currentPlayerVideo.snippet && this.props.currentPlayerVideo.snippet.description}
+               <div className="col-md-8">
+               {this.renderDesc()}
                </div>
             </div>
             </div>

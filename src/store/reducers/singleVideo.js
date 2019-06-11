@@ -9,7 +9,9 @@ function currentPlayerVideoReducer(currentPlayerVideo={},action){
     }
 
     if(action.type=="VIDEO_DATA_LOADED"){
-        return currentPlayerVideo=action.videoData;
+        let newAction =action.videoData;
+        newAction.snippet.shortDesc = action.videoData.snippet.description.slice(0,200);
+        return newAction;
     }
     return currentPlayerVideo;
 
