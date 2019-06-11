@@ -31,8 +31,30 @@ class VideoPlayerComponent extends React.Component{
             <div>
             <h2 className="text-danger">{this.renderData()}</h2>
             <hr></hr>
-            <div className="embed-responsive embed-responsive-4by3">
+            <div className="row">
+            <div className="col-md-1"></div>
+               <div className="col-md-9">
+               <div className="embed-responsive embed-responsive-4by3">
             <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${this.props.match.params.videoId}?rel=0`} allowFullScreen></iframe>
+            </div>
+               </div>
+            </div>
+            <div className="row">
+            <div className="col-md-1"></div>
+               <div className="col-md-11">
+                 <h2>
+                     Views:{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.viewCount },
+                     Likes:{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.likeCount },
+                     Dislikes:{this.props.currentPlayerVideo.statistics && this.props.currentPlayerVideo.statistics.dislikeCount }
+                 </h2>
+               </div>
+            </div>
+            
+            <div className="row">
+            <div className="col-md-1"></div>
+               <div className="col-md-9">
+               {this.props.currentPlayerVideo.snippet && this.props.currentPlayerVideo.snippet.description}
+               </div>
             </div>
             </div>
         );
