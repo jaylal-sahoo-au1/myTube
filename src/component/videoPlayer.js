@@ -16,6 +16,12 @@ class VideoPlayerComponent extends React.Component{
             videoId:this.props.match.params.videoId
         })
     }
+    componentWillUnmount(){
+        this.props.dispatch({
+            type:"CLEAR_VIDEO_DATA",
+            videoType:"trending"
+        })
+    }
     renderData(){
         if(!this.props.currentPlayerVideo.snippet){
             return "Kindly wait....laoding";
