@@ -10,7 +10,7 @@ import {VideoPlayer} from './videoPlayer';
 class App extends React.Component{
     render(){
         return <Provider store={store}>
-            <Router><div className="container-fluid">
+            <div className="container-fluid">
         <div className="row">
            <div className="col-md-3">
               <h3 className="text-danger">myTube<span className="oi oi-play-circle"></span></h3>
@@ -24,7 +24,7 @@ class App extends React.Component{
     
            </div>
         </div>
-      </div></Router>
+      </div>
             </Provider>
                    
                
