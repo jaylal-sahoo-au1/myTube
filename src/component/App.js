@@ -18,9 +18,9 @@ class App extends React.Component{
               <hr></hr>
            </div>
            <div className="col-md-9">
-           <Route path="/" exact={true} component={Trending}/>
-           <Route path="/search" exact={true} component={Search}/>
-           <Route path="/player/:videoId" exact={true} component={VideoPlayer}/>
+           <Route path="/app" exact={true} component={Trending}/>
+           <Route path="/app/search" exact={true} component={Search}/>
+           <Route path="/app/player/:videoId" exact={true} component={VideoPlayer}/>
     
            </div>
         </div>
