@@ -1,4 +1,4 @@
-import {store} from './store/store';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './component/App';
@@ -7,7 +7,7 @@ import {Login} from './component/login';
 
 class Home extends React.Component{
     doRedirect(){
-        let loggedIn= false;
+        let loggedIn= true;
 
         if(loggedIn){
             return <Redirect to="/app" />
