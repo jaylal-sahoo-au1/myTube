@@ -1,6 +1,5 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 
 
@@ -8,7 +7,17 @@ class Login extends React.Component{
 
  render(){
     const responseGoogle = (response) => {
-      
+        console.log(response);
+      if(!response || !response.accessToken){
+          alert("sorry .google signin has failed");
+          return;
+      }
+      let user={
+          token:response.accessToken,
+          name:response.profileObj.name
+      };
+      localStorage.setItem("user",JSON.stringify(user));
+      this.props.history.push("/app");
       }
        return (
         <GoogleLogin

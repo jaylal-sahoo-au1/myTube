@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './component/App';
@@ -7,7 +6,7 @@ import {Login} from './component/login';
 
 class Home extends React.Component{
     doRedirect(){
-        let loggedIn= localStorage.getItem("user");
+        let loggedIn= true;
 
         if(loggedIn){
             return <Redirect to="/app" />
@@ -28,6 +27,3 @@ class Home extends React.Component{
 }
 
 ReactDOM.render(<Home/>,document.getElementById("root"));
-
-
-
