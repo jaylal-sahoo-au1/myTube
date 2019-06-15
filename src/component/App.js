@@ -6,6 +6,7 @@ import { Trending } from './trending';
 import { Search } from './search';
 import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
 import {VideoPlayer} from './videoPlayer';
+import { Profile } from './profile';
  
 class App extends React.Component{
     render(){
@@ -21,6 +22,7 @@ class App extends React.Component{
            <Route path="/app" exact={true} component={Trending}/>
            <Route path="/app/search"  component={Search}/>
            <Route path="/app/player/:videoId"  component={VideoPlayer}/>
+           <Route path="/app/profile"  component={Profile}/>
     
            </div>
         </div>
