@@ -11,6 +11,8 @@ class Menu extends React.Component{
   Trending</Link></li>
   <li className="list-group-item"><Link to="/app/search">search</Link></li>
   <li className="list-group-item"><Link to="/app/profile">Profile</Link></li>
+  <li className="list-group-item"><Link to="/app/logout">Logout</Link></li>
+  
   
 </ul>
         );
