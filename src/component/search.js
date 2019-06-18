@@ -36,6 +36,7 @@ class SearchComponent extends React.Component{
     }
     render(){
         return(
+            
                 <div>
                     <h2 className="text-danger">Search videos</h2>
                     <div className="form-row">

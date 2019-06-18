@@ -19,8 +19,8 @@ class Home extends React.Component{
  render(){
        return (
            <Router>
-        <Route path="/app" exact={true} component={App}/>
-        <Route path="/login" exact={true} component={Login}/>
+        <Route path="/app"  component={App}/>
+        <Route path="/login"  component={Login}/>
         {this.doRedirect()}
         </Router>
        );

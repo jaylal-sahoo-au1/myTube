@@ -3,8 +3,8 @@ import {Provider} from 'react-redux';
 import {store} from '../store/store';
 import {Menu} from './Menu';
 import { Trending } from './trending';
-import { Search } from './search';
-import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
+import { Search } from './search.js';
+import {Route} from 'react-router-dom';
 import {VideoPlayer} from './videoPlayer';
 import { Profile } from './profile';
 import { Logout } from './logout';
@@ -23,7 +23,7 @@ class App extends React.Component{
            <Route path="/app" exact={true} component={Trending}/>
            <Route path="/app/search"  component={Search}/>
            <Route path="/app/player/:videoId"  component={VideoPlayer}/>
-           <Route path="/app/profile"  component={Profile}/>
+           <Route path="/app/profile" component={Profile}/>
            <Route path="/app/logout"  component={Logout}/>
     
            </div>
